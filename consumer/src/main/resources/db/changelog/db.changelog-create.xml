@@ -1,0 +1,42 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="soundarya (generated)" id="1">
+        <validCheckSum>8:3736d35922add75d5b69a89fc4d7b99a</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="customer"/>
+            </not>
+        </preConditions>
+        <createTable tableName="customer">
+            <column name="customer_id" type="BIGINT"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="address_line1" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="country" type="VARCHAR(255)"/>
+            <column name="phno" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="soundarya (generated)" id="2">
+        <validCheckSum>8:3736d35922add75d5b69a89fc4d7b99a</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="order"/>
+            </not>
+        </preConditions>
+        <createTable tableName="order">
+            <column name="orderId" type="BIGINT"/>
+            <column name="orderCost" type="BIGINT"/>
+            <column name="orderCreateTs" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="orderUpdateTs" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="orderStatus" type="VARCHAR(255)"/>
+            <column name="customerId" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
